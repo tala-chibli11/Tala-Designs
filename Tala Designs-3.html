@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tala Designs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #F8F1E4, #E4DCCF);
+            color: #4A403A;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        .header {
+            padding: 20vh 5vw;
+            background: #800020;
+            color: #F8F1E4;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .header h1 {
+            font-size: 4em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 5vw;
+        }
+
+        .service-box {
+            background: #E4DCCF;
+            padding: 2em;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-box:hover {
+            transform: scale(1.05);
+            background: #D4C4B1;
+        }
+
+        .service-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: #800020;
+        }
+
+        .service-box p {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        footer {
+            background: #800020;
+            color: #F8F1E4;
+            padding: 2em;
+            margin-top: 3em;
+        }
+
+        footer a {
+            color: #F8F1E4;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Tala Designs</h1>
+    </div>
+
+    <div class="services">
+        <div class="service-box">
+            <h3>Graphic Design</h3>
+            <p>Visual storytelling that captures attention and builds identity.</p>
+        </div>
+        <div class="service-box">
+            <h3>Photography & Videography</h3>
+            <p>High-quality content creation with an artistic touch.</p>
+        </div>
+        <div class="service-box">
+            <h3>Professional Documents</h3>
+            <p>CVs, presentations, and spreadsheets that leave a mark.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Connect with Me:</p>
+        <a href="https://www.instagram.com/tala.chibli" target="_blank">Instagram</a> |
+        <a href="https://www.linkedin.com/in/tala-chibli-89a8632ab" target="_blank">LinkedIn</a>
+    </footer>
+</body>
+</html>
