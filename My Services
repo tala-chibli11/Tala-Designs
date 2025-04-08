@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tala Designs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rose-gold: #b76e79;
+      --baby-pink: #fcd4d8;
+      --light-pink: #fff0f5;
+      --gold: #f8d49d;
+      --text-dark: #5a4e4d;
+      --hover-bg: #ffe4ec;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-dark);
+      overflow-x: hidden;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(-45deg, #fff0f5, #fcd4d8, #fff0f5, #fcd4d8);
+      background-size: 400% 400%;
+      animation: backgroundShift 15s ease infinite;
+    }
+
+    @keyframes backgroundShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Floating petals */
+    .floating-petal {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(183, 110, 121, 0.2);
+      animation: float 20s linear infinite;
+      z-index: 0;
+    }
+
+    .floating-petal:nth-child(1) { width: 60px; height: 60px; top: 10%; left: 20%; animation-duration: 25s; }
+    .floating-petal:nth-child(2) { width: 40px; height: 40px; top: 60%; left: 80%; animation-duration: 18s; }
+    .floating-petal:nth-child(3) { width: 80px; height: 80px; top: 40%; left: 50%; animation-duration: 30s; }
+    .floating-petal:nth-child(4) { width: 50px; height: 50px; top: 80%; left: 10%; animation-duration: 22s; }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+      50% { transform: translateY(-30px) rotate(180deg); opacity: 1; }
+      100% { transform: translateY(0) rotate(360deg); opacity: 0.6; }
+    }
+
+    .header {
+      padding: 20vh 5vw;
+      background: linear-gradient(135deg, var(--rose-gold), #a05261);
+      color: white;
+      font-family: 'Great Vibes', cursive;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(-100px);
+      animation: fadeInUp 1.5s forwards 0.5s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header h1 {
+      font-size: 5rem;
+      letter-spacing: 4px;
+      animation: fadeSlide 1.5s ease-in-out;
+      position: relative;
+      z-index: 2;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 5vw;
+      z-index: 1;
+      position: relative;
+    }
+
+    .service-box {
+      background-color: var(--light-pink);
+      padding: 2.5em 2em;
+      border-radius: 20px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      opacity: 0;
+      transform: translateY(100px);
+      animation: fadeInUp 1.5s forwards;
+    }
+
+    .service-box:nth-child(1) {
+      animation-delay: 0.5s;
+    }
+
+    .service-box:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .service-box:nth-child(3) {
+      animation-delay: 1.5s;
+    }
+
+    .service-box:hover {
+      transform: translateY(-8px);
+      background-color: var(--hover-bg);
+    }
+
+    .service-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8em;
+      margin-bottom: 0.5em;
+      color: var(--rose-gold);
+    }
+
+    .service-box p {
+      font-size: 1.05em;
+      margin-bottom: 1em;
+    }
+
+    .service-box ul {
+      list-style: none;
+      padding-left: 0;
+      text-align: left;
+    }
+
+    .service-box ul li {
+      margin-bottom: 0.6em;
+      font-size: 0.95em;
+      position: relative;
+      padding-left: 1.2em;
+    }
+
+    .service-box ul li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    .contact-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1em 2em;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(to right, var(--rose-gold), var(--gold));
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transition: background 0.4s ease;
+      z-index: 2;
+      position: relative;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1.5s forwards 2s;
+    }
+
+    .contact-button:hover {
+      background: linear-gradient(to right, var(--gold), var(--rose-gold));
+    }
+
+    footer {
+      background: linear-gradient(to right, var(--rose-gold), #a05261);
+      color: white;
+      padding: 2.5em 1em;
+      margin-top: 4em;
+      z-index: 1;
+      position: relative;
+      opacity: 0;
+      transform: translateY(100px);
+      animation: fadeInUp 1.5s forwards 3s;
+    }
+
+    footer p {
+      font-size: 1.3em;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1em;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+      margin: 0 14px;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+      text-shadow: 0 0 5px var(--gold);
+    }
+
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 3.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating petals for soft background animation -->
+  <div class="floating-petal"></div>
+  <div class="floating-petal"></div>
+  <div class="floating-petal"></div>
+  <div class="floating-petal"></div>
+
+  <div class="header">
+    <h1>Tala Designs</h1>
+  </div>
+
+  <div class="services">
+    <div class="service-box">
+      <h3>Graphic Design</h3>
+      <p>Visual storytelling that builds identity and captures attention.</p>
+      <ul>
+        <li>Social Media (Posts, Stories, Reels)</li>
+        <li>Branding (Logo, Posters, Mockups)</li>
+        <li>Cards (Invitations & Business)</li>
+        <li>Print Designs (Books, Magazines, Menus)</li>
+        <li>Illustration & Custom Art (Characters, Icons, Storyboards)</li>
+        <li>Project Support (Word, Excel, PowerPoint)</li>
+        <li>Professional Documents (CV, Resume, Cover Letter)</li>
+      </ul>
+    </div>
+
+    <div class="service-box">
+      <h3>Photography & Videography</h3>
+      <p>Creating high-quality content with a sharp eye for detail.</p>
+      <ul>
+        <li>Content Creation</li>
+        <li>Photography</li>
+        <li>Videography</li>
+        <li>Photo Retouching (Photoshop)</li>
+        <li>Video Editing</li>
+      </ul>
+    </div>
+
+    <div class="service-box">
+      <h3>Marketing & Management</h3>
+      <p>Engaging audiences and managing digital presence effectively.</p>
+      <ul>
+        <li>Account Management</li>
+        <li>Campaign Strategy</li>
+        <li>Audience Insights & Targeting</li>
+        <li>Performance Reporting</li>
+        <li>Ad Design & Copy</li>
+        <li>Platform Expertise</li>
+        <li>Community Engagement</li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <p>Connect with Me:</p>
+    <a href="https://www.instagram.com/iam___tala" target="_blank">Instagram</a> |
+    <a href="https://www.linkedin.com/in/tala-chibli-89a8632ab" target="_blank">LinkedIn</a>
+  </footer>
+</body>
+</html>
