@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Tala Chibli's professional portfolio and services, including graphic design, web development, and photography.">
+  <meta name="keywords" content="Tala Chibli, portfolio, graphic design, web development, photography, resume creation">
+  <meta name="author" content="Tala Chibli">
+  <meta property="og:title" content="Tala Chibli | Portfolio & Services">
+  <meta property="og:description" content="Showcasing Tala Chibli's expertise in design, development, and creative services.">
+  <meta property="og:image" content="https://imgur.com/h4I6KoQ.jpg">
+  <meta property="og:url" content="https://yourwebsite.com">
+  <meta property="og:type" content="website">
   <title>Tala Chibli | Portfolio & Services</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     :root {
       --rose-gold: #b76e79;
       --baby-pink: #fcd4d8;
       --light-pink: #fff0f5;
-      --gold: #fcd4d8;
+      --gold: #f8e8d1;
       --text-dark: #4a3f3e;
+      --accent-dark: #a55862;
+      --hover-effect: linear-gradient(135deg, #fcd4d8, #b76e79);
     }
 
     * {
@@ -24,119 +35,202 @@
       font-family: 'Roboto', sans-serif;
       background: var(--light-pink);
       color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    .profile-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    header {
       text-align: center;
-      padding: 2.5rem 1rem;
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, var(--baby-pink), var(--rose-gold));
+      clip-path: ellipse(150% 100% at 50% 0%);
+      color: white;
     }
 
     .profile-pic {
-      width: 160px;
-      height: 160px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid var(--rose-gold);
-      margin-bottom: 1.2rem;
+      border: 5px solid var(--gold);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
     .profile-name {
-      font-size: 2.2rem;
+      font-size: 3rem;
       font-weight: bold;
-      color: var(--rose-gold);
+      color: var(--gold);
       font-family: 'Playfair Display', serif;
+      margin-top: 1.5rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .profile-description {
+      font-size: 1.3rem;
+      margin-top: 0.8rem;
+      color: var(--light-pink);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .services-section {
-      padding: 3rem 2rem;
-      background: linear-gradient(to bottom, var(--baby-pink), var(--light-pink));
+      padding: 4rem 2rem;
+      text-align: center;
+      background: white;
+      position: relative;
+    }
+
+    .services-section::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(135deg, var(--baby-pink), var(--rose-gold));
+      clip-path: ellipse(100% 100% at 50% 0%);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: var(--rose-gold);
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--rose-gold);
+      margin: 10px auto 0;
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-      max-width: 1100px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
     .service-box {
       background: white;
       padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
+      border-radius: 20px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-box:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--hover-effect);
+      clip-path: circle(0% at 50% 50%);
+      transition: clip-path 0.5s ease;
+      z-index: 1;
+    }
+
+    .service-box:hover::before {
+      clip-path: circle(150% at 50% 50%);
     }
 
     .service-box h3 {
       font-family: 'Playfair Display', serif;
       color: var(--rose-gold);
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
     }
 
-    .service-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    .service-box p {
+      font-size: 1rem;
+      color: var(--text-dark);
+      position: relative;
+      z-index: 2;
     }
 
     .connect-section {
-      padding: 3rem 2rem;
+      padding: 4rem 2rem;
       text-align: center;
+      background: var(--baby-pink);
+      color: white;
     }
 
     .connect-section h2 {
-      color: var(--rose-gold);
+      font-size: 2.8rem;
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .links {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .links a {
       display: flex;
       align-items: center;
-      background: var(--gold);
-      color: #000;
+      background: var(--rose-gold);
+      color: white;
       text-decoration: none;
-      padding: 0.75rem 1.2rem;
-      border-radius: 10px;
+      padding: 0.9rem 1.8rem;
+      border-radius: 30px;
       font-weight: bold;
-      transition: background 0.3s ease, color 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .links a img {
-      width: 24px;
-      height: 24px;
-      margin-right: 0.6rem;
+      width: 28px;
+      height: 28px;
+      margin-right: 0.8rem;
     }
 
     .links a:hover {
-      background: var(--rose-gold);
-      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
     footer {
       text-align: center;
-      color: var(--text-dark);
-      padding: 2rem 0 1rem;
-      font-size: 0.95rem;
+      padding: 2rem 1rem;
+      background: var(--light-pink);
+      font-size: 0.9rem;
     }
 
     footer a {
       color: var(--rose-gold);
-      margin: 0 1rem;
       text-decoration: none;
       font-weight: 500;
     }
@@ -144,85 +238,56 @@
     footer a:hover {
       text-decoration: underline;
     }
-
-    .floating-buttons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 999;
-    }
-
-    .floating-buttons a {
-      width: 50px;
-      height: 50px;
-      background-color: var(--rose-gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      transition: background-color 0.3s ease;
-    }
-
-    .floating-buttons a:hover {
-      background-color: #a55862;
-    }
-
-    .floating-buttons img {
-      width: 24px;
-      height: 24px;
-      filter: brightness(0) invert(1);
-    }
-
-    @media (min-width: 768px) {
-      .floating-buttons {
-        display: none;
-      }
-    }
   </style>
 </head>
 <body>
+  <header>
+    <img src="https://imgur.com/h4I6KoQ.jpg" alt="Tala Chibli's Photo" class="profile-pic">
+    <h1 class="profile-name">Tala Chibli</h1>
+    <p class="profile-description">Creative Designer | Frontend Developer</p>
+  </header>
 
-  <section class="profile-section">
-    <img src="https://imgur.com/h4I6KoQ.jpg" alt="Tala's Photo" class="profile-pic" />
-    <div class="profile-name">Tala Chibli</div>
-  </section>
+  <main>
+    <section class="services-section">
+      <h2 class="section-title">What I Offer</h2>
+      <div class="services-grid">
+        <div class="service-box">
+          <h3>Graphic Design</h3>
+          <p>Social media, branding, and custom card designs that stand out.</p>
+        </div>
+        <div class="service-box">
+          <h3>Web Development</h3>
+          <p>Crafting responsive, visually stunning websites tailored to your needs.</p>
+        </div>
+        <div class="service-box">
+          <h3>Projects & CV Creation</h3>
+          <p>Professional projects designed via word, powerpoint, or excel.</p>
+        </div>
+        <div class="service-box">
+          <h3>Photography & Editing</h3>
+          <p>Capture and enhance moments with a professional touch.</p>
+        </div>
+      </div>
+    </section>
 
-  <section class="services-section">
-    <div class="services-grid">
-      <div class="service-box"><h3>Graphic Design (social media, branding, & cards)</h3></div>
-      <div class="service-box"><h3>Web Development / Frontend Development</h3></div>
-      <div class="service-box"><h3>Projects, CV & Resume Making (word, powerpoint, excel)</h3></div>
-      <div class="service-box"><h3>Photography, Photoshop & Video Editing</h3></div>
-    </div>
-  </section>
-  <section class="connect-section">
-    <h2>Let's Connect</h2>
-    <div class="links">
-      <a href="https://instagram.com/iam___tala" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Icon" />
-        Instagram
-      </a>
-      <a href="https://www.linkedin.com/in/tala-chibli-89a8632ab" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Icon" />
-        LinkedIn
-      </a>
-    </div>
-  </section>
-
-  <!-- Floating buttons -->
-  <div class="floating-buttons">
-    <a href="mailto:talachibli6@gmail.com">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" />
-    </a>
-  </div>
+    <section class="connect-section">
+      <h2>Let's Connect</h2>
+      <div class="links">
+        <a href="https://instagram.com/iam___tala" target="_blank">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.linkedin.com/in/tala-chibli-89a8632ab" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="mailto:talachibli6@gmail.com">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Tala Chibli. All rights reserved.</p>
+    <p>&copy; 2025 Tala Chibli. All rights reserved.
   </footer>
-
 </body>
 </html>
