@@ -3,79 +3,238 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tala's Links</title>
+  <title>Tala Chibli | Portfolio & Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --rose-gold: #b76e79;
       --baby-pink: #fcd4d8;
       --light-pink: #fff0f5;
-      --gold: #f8d49d;
+      --gold: #fcd4d8;
+      --text-dark: #4a3f3e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      padding: 0;
-      background-color: var(--light-pink);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Roboto', sans-serif;
+      background: var(--light-pink);
+      color: var(--text-dark);
+    }
+
+    .profile-section {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-    }
-
-    .container {
-      background: white;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       text-align: center;
-      max-width: 400px;
-      width: 90%;
+      padding: 2.5rem 1rem;
     }
 
     .profile-pic {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid var(--rose-gold);
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
 
-    h1 {
+    .profile-name {
+      font-size: 2.2rem;
+      font-weight: bold;
       color: var(--rose-gold);
-      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .services-section {
+      padding: 3rem 2rem;
+      background: linear-gradient(to bottom, var(--baby-pink), var(--light-pink));
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .service-box h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--rose-gold);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .connect-section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .connect-section h2 {
+      color: var(--rose-gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
     }
 
     .links a {
-      display: block;
+      display: flex;
+      align-items: center;
       background: var(--gold);
       color: #000;
       text-decoration: none;
-      margin: 0.5rem 0;
-      padding: 0.75rem;
+      padding: 0.75rem 1.2rem;
       border-radius: 10px;
-      transition: background 0.3s ease;
+      font-weight: bold;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .links a img {
+      width: 24px;
+      height: 24px;
+      margin-right: 0.6rem;
     }
 
     .links a:hover {
       background: var(--rose-gold);
       color: white;
     }
+
+    footer {
+      text-align: center;
+      color: var(--text-dark);
+      padding: 2rem 0 1rem;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: var(--rose-gold);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .floating-buttons a {
+      width: 50px;
+      height: 50px;
+      background-color: var(--rose-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.3s ease;
+    }
+
+    .floating-buttons a:hover {
+      background-color: #a55862;
+    }
+
+    .floating-buttons img {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1);
+    }
+
+    @media (min-width: 768px) {
+      .floating-buttons {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://imgur.com/h4I6KoQ.jpg" alt="Tala's photo" class="profile-pic" />
-    <h1>Tala Chibli</h1>
-    <div class="links">
-      <a href="https://wa.me/71732045" target="_blank">WhatsApp</a>
-      <a href="https://instagram.com/iam___tala" target="_blank">Instagram</a>
-      <a href="https://www.linkedin.com/in/Tala Chibli" target="_blank">LinkedIn</a>
-      <a href="mailto:talachibli6@gmail.com">Email</a>
-      <a href="https://is.gd/by_tala" target="_blank">My Services</a>
+
+  <section class="profile-section">
+    <img src="https://imgur.com/h4I6KoQ.jpg" alt="Tala's Photo" class="profile-pic" />
+    <div class="profile-name">Tala Chibli</div>
+  </section>
+
+  <section class="services-section">
+    <div class="services-grid">
+      <div class="service-box"><h3>Content Creation</h3></div>
+      <div class="service-box"><h3>Graphic Design</h3></div>
+      <div class="service-box"><h3>Web Development</h3></div>
+      <div class="service-box"><h3>Project Making</h3></div>
+      <div class="service-box"><h3>CV & Resume Building</h3></div>
+      <div class="service-box"><h3>Digital Marketing</h3></div>
+      <div class="service-box"><h3>Photography & Photoshop</h3></div>
+      <div class="service-box"><h3>Videography & Video Editing</h3></div>
     </div>
+  </section>
+
+  <section class="connect-section">
+    <h2>Let's Connect</h2>
+    <div class="links">
+      <a href="https://instagram.com/iam___tala" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Icon" />
+        Instagram
+      </a>
+      <a href="https://www.linkedin.com/in/tala-chibli-89a8632ab" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Icon" />
+        LinkedIn
+      </a>
+      <a href="mailto:talachibli6@gmail.com">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon" />
+        Email
+      </a>
+    </div>
+  </section>
+
+  <!-- Floating buttons -->
+  <div class="floating-buttons">
+    <a href="https://instagram.com/iam___tala" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+    </a>
+    <a href="mailto:talachibli6@gmail.com">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" />
+    </a>
   </div>
+
+  <footer>
+    <p>&copy; 2025 Tala Chibli. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
