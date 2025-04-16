@@ -16,13 +16,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-BTd2H9+90L5GkK9Ae6ZLkz/4X/uhQm7C+Q8bV9YwqHqK+QKHP9eZfK7kq3/9g7vriWIFxx9Ms5FqNWYIoZ1vw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
-      --primary-color: #b76e79;
-      --secondary-color: #fcd4d8;
-      --light-bg: #fff0f5;
+      --primary-color: #c67a8e;
+      --secondary-color: #f7d9e0;
+      --light-bg: #ffffff; /* Changed sand color to white */
       --text-color: #4a3f3e;
       --accent-color: #a55862;
       --gold: #f8e8d1;
-      --hover-gradient: linear-gradient(135deg, #fcd4d8, #b76e79);
+      --hover-gradient: linear-gradient(135deg, #f7d9e0, #c67a8e);
+      --header-gradient: radial-gradient(circle, #f7d9e0, #c67a8e, #8e4453);
     }
 
     * {
@@ -41,36 +42,57 @@
 
     header {
       text-align: center;
-      padding: 4rem 1rem;
-      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      padding: 5rem 1rem;
+      background: var(--header-gradient);
       color: white;
       clip-path: ellipse(150% 100% at 50% 0%);
+      animation: gradientShift 8s infinite alternate;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background: var(--header-gradient);
+      }
+      100% {
+        background: radial-gradient(circle, #c67a8e, #8e4453, #4a1f28);
+      }
     }
 
     .profile-pic {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid var(--gold);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
     .profile-pic:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transform: scale(1.1) translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     .profile-name {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: bold;
       font-family: 'Playfair Display', serif;
       margin-top: 1.5rem;
     }
 
     .profile-description {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-top: 0.5rem;
+      display: inline-block; /* Ensures text stays on one line */
     }
 
     main {
@@ -79,12 +101,24 @@
 
     .services-section {
       text-align: center;
-      padding: 3rem 1rem;
+      padding: 4rem 1rem;
       background: white;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .section-title {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-family: 'Playfair Display', serif;
       color: var(--primary-color);
       margin-bottom: 2rem;
@@ -93,13 +127,13 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      gap: 2.5rem;
     }
 
     .service-box {
       padding: 2rem;
       background: var(--light-bg);
-      border-radius: 10px;
+      border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -107,29 +141,36 @@
     .service-box:hover {
       transform: translateY(-10px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      background: var(--hover-gradient);
+      color: white;
     }
 
     .service-box h3 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-family: 'Playfair Display', serif;
       color: var(--primary-color);
       margin-bottom: 1rem;
     }
 
-    .service-box p {
-      font-size: 1rem;
-      color: var(--text-color);
-    }
-
     .connect-section {
       text-align: center;
-      padding: 3rem 1rem;
-      background: var(--secondary-color);
+      padding: 4rem 1rem;
+      background: var(--header-gradient); /* Matches the top of the website */
       color: white;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
 
     .connect-section h2 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       font-family: 'Playfair Display', serif;
       margin-bottom: 2rem;
     }
@@ -138,31 +179,31 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .links a {
       display: inline-flex;
       align-items: center;
-      padding: 0.8rem 1.5rem;
+      padding: 1rem 2rem;
       background: var(--primary-color);
       color: white;
       text-decoration: none;
-      border-radius: 25px;
+      border-radius: 30px;
       font-weight: bold;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .links a:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 
     footer {
       text-align: center;
       padding: 2rem 1rem;
       background: var(--light-bg);
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
 
     footer a {
