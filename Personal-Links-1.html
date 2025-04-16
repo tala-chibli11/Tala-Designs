@@ -18,7 +18,7 @@
     :root {
       --primary-color: #c67a8e;
       --secondary-color: #f7d9e0;
-      --light-bg: #ffffff; /* Changed sand color to white */
+      --light-bg: #ffffff;
       --text-color: #4a3f3e;
       --accent-color: #a55862;
       --gold: #f8e8d1;
@@ -43,19 +43,9 @@
     header {
       text-align: center;
       padding: 5rem 1rem;
-      background: var(--header-gradient);
+      background: radial-gradient(circle, #c67a8e, #8e4453, #4a1f28); /* غامقة فقط */
       color: white;
       clip-path: ellipse(150% 100% at 50% 0%);
-      animation: gradientShift 8s infinite alternate;
-    }
-
-    @keyframes gradientShift {
-      0% {
-        background: var(--header-gradient);
-      }
-      100% {
-        background: radial-gradient(circle, #c67a8e, #8e4453, #4a1f28);
-      }
     }
 
     .profile-pic {
@@ -92,7 +82,8 @@
     .profile-description {
       font-size: 1.3rem;
       margin-top: 0.5rem;
-      display: inline-block; /* Ensures text stays on one line */
+      display: inline-block;
+      white-space: nowrap; /* يمنع انقسام السطر */
     }
 
     main {
@@ -155,7 +146,7 @@
     .connect-section {
       text-align: center;
       padding: 4rem 1rem;
-      background: var(--header-gradient); /* Matches the top of the website */
+      background: radial-gradient(circle, #c67a8e, #8e4453, #4a1f28); /* مطابقة للهيدر */
       color: white;
       animation: fadeIn 1.5s ease;
     }
