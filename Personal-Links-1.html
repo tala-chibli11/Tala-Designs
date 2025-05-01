@@ -78,6 +78,11 @@
       font-weight: 300;
     }
 
+    .role-line {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
     main {
       padding: 4rem 1rem;
     }
@@ -94,6 +99,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
+      margin-bottom: 5rem; /* Added space before connect section */
     }
 
     .service-box {
@@ -123,6 +129,8 @@
       padding: 4rem 1rem;
       color: white;
       text-align: center;
+      width: 100vw;
+      margin-left: calc(-1 * (100vw - 100%)/2);
     }
 
     .connect-section h2 {
@@ -180,7 +188,10 @@
   <header>
     <img src="https://imgur.com/vFQqUvK.jpg" alt="Tala Chibli" class="profile-pic" loading="lazy">
     <h1 class="profile-name">Tala Chibli</h1>
-    <p class="profile-description">Graphic Designer | Web Developer | Photographer & Editor</p>
+    <p class="profile-description">
+      <span class="role-line">Graphic Designer | Web Developer</span><br>
+      <span class="role-line">Photographer | Editor</span>
+    </p>
   </header>
 
   <main>
